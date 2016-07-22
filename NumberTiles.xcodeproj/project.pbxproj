@@ -15,6 +15,7 @@
 		BAC87F931D41448B006AFC38 /* NumberTilesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC87F921D41448B006AFC38 /* NumberTilesUITests.swift */; };
 		BAE876A81D42007000701DC7 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE876A71D42007000701DC7 /* LaunchViewController.swift */; };
 		BAE876AB1D42016600701DC7 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE876AA1D42016600701DC7 /* GameScreenViewController.swift */; };
+		D80A7E09EA8C91414C4A5EFB /* Pods_NumberTiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0AACF08040D599233550E73 /* Pods_NumberTiles.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25576B11A630C73FCDFBB48E /* Pods-NumberTiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NumberTiles.release.xcconfig"; path = "Pods/Target Support Files/Pods-NumberTiles/Pods-NumberTiles.release.xcconfig"; sourceTree = "<group>"; };
 		BAC87F6C1D41448B006AFC38 /* NumberTiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberTiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAC87F6F1D41448B006AFC38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = NumberTiles/AppDelegate.swift; sourceTree = "<group>"; };
 		BAC87F741D41448B006AFC38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		BAC87F941D41448B006AFC38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAE876A71D42007000701DC7 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		BAE876AA1D42016600701DC7 /* GameScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
+		C0AACF08040D599233550E73 /* Pods_NumberTiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NumberTiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8F50F4F428B953F86461D7D /* Pods-NumberTiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NumberTiles.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NumberTiles/Pods-NumberTiles.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D80A7E09EA8C91414C4A5EFB /* Pods_NumberTiles.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +81,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86D0656063C4EF341D4DD304 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0AACF08040D599233550E73 /* Pods_NumberTiles.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9DADCFD38A4E28D7D53946C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C8F50F4F428B953F86461D7D /* Pods-NumberTiles.debug.xcconfig */,
+				25576B11A630C73FCDFBB48E /* Pods-NumberTiles.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BAC87F631D41448B006AFC38 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +106,8 @@
 				BAC87F911D41448B006AFC38 /* NumberTilesUITests */,
 				BAC87F6D1D41448B006AFC38 /* Products */,
 				BAE876AC1D420A1500701DC7 /* Supporting Files */,
+				9DADCFD38A4E28D7D53946C7 /* Pods */,
+				86D0656063C4EF341D4DD304 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,9 +183,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAC87F971D41448B006AFC38 /* Build configuration list for PBXNativeTarget "NumberTiles" */;
 			buildPhases = (
+				AFB0727DD73B3BE7E207C6F3 /* [CP] Check Pods Manifest.lock */,
 				BAC87F681D41448B006AFC38 /* Sources */,
 				BAC87F691D41448B006AFC38 /* Frameworks */,
 				BAC87F6A1D41448B006AFC38 /* Resources */,
+				055EDFF01C5BBA681B7826CB /* [CP] Embed Pods Frameworks */,
+				6809B41C3C9D6F696FA7C96B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -277,6 +304,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		055EDFF01C5BBA681B7826CB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NumberTiles/Pods-NumberTiles-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6809B41C3C9D6F696FA7C96B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NumberTiles/Pods-NumberTiles-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFB0727DD73B3BE7E207C6F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BAC87F681D41448B006AFC38 /* Sources */ = {
@@ -418,6 +493,7 @@
 		};
 		BAC87F981D41448B006AFC38 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8F50F4F428B953F86461D7D /* Pods-NumberTiles.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -432,6 +508,7 @@
 		};
 		BAC87F991D41448B006AFC38 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25576B11A630C73FCDFBB48E /* Pods-NumberTiles.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
