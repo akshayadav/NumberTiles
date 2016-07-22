@@ -16,12 +16,8 @@ class GameScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        var imageView: UIImageView = UIImageView()
-//       imageView = UIImageView.init()
-        
         print(topBar.frame.height)
         print(bottomBar.frame.height)
-        
 
         // Do any additional setup after loading the view.
     }
@@ -29,6 +25,14 @@ class GameScreenViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        print(topBar.frame.height)
+        print(bottomBar.frame.height)
+        
+        super.viewDidAppear(animated)
     }
     
     @IBAction func whatheight(sender: UIButton) {
