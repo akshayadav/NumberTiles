@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Launch View Controller-->
@@ -33,6 +34,9 @@
                                             <constraint firstAttribute="width" secondItem="qCy-E6-gkl" secondAttribute="height" multiplier="123:49" id="kIL-Qt-fTa"/>
                                         </constraints>
                                         <state key="normal" image="Play"/>
+                                        <connections>
+                                            <segue destination="TTZ-RZ-q7v" kind="presentation" id="F7b-FI-Cqq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.72422010830000005" green="1" blue="0.79914993170000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -74,12 +78,47 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l14-hs-HWk">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m1e-e5-4JA">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFw-Ke-L66" userLabel="BottomBar">
+                                        <rect key="frame" x="0.0" y="644" width="414" height="92"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bu0-lE-kYA" userLabel="MiddleGround">
+                                        <rect key="frame" x="0.0" y="92" width="414" height="552"/>
+                                        <color key="backgroundColor" red="0.85017186560000002" green="0.78724021420000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1e-e5-4JA" userLabel="TopBar">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82c-mJ-0o6">
+                                                <rect key="frame" x="184" y="31" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="whatheight:" destination="TTZ-RZ-q7v" eventType="touchUpInside" id="4c7-61-3Dn"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92233721130000001" green="1" blue="0.99228504699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="WFw-Ke-L66" secondAttribute="trailing" id="3EA-TP-kEp"/>
+                                    <constraint firstItem="m1e-e5-4JA" firstAttribute="leading" secondItem="l14-hs-HWk" secondAttribute="leading" id="8FU-0T-9ST"/>
+                                    <constraint firstItem="bu0-lE-kYA" firstAttribute="height" secondItem="l14-hs-HWk" secondAttribute="height" multiplier="0.75" id="AtK-4o-uWZ"/>
+                                    <constraint firstItem="WFw-Ke-L66" firstAttribute="height" secondItem="m1e-e5-4JA" secondAttribute="height" id="EKN-dx-wvm"/>
+                                    <constraint firstItem="bu0-lE-kYA" firstAttribute="width" secondItem="l14-hs-HWk" secondAttribute="width" id="HLl-ba-aGB"/>
+                                    <constraint firstItem="WFw-Ke-L66" firstAttribute="centerX" secondItem="m1e-e5-4JA" secondAttribute="centerX" id="I6a-ci-VOB"/>
+                                    <constraint firstAttribute="bottom" secondItem="WFw-Ke-L66" secondAttribute="bottom" id="Ic3-oV-4Wa"/>
+                                    <constraint firstItem="m1e-e5-4JA" firstAttribute="width" secondItem="l14-hs-HWk" secondAttribute="width" id="Ktf-DU-Jit"/>
+                                    <constraint firstItem="bu0-lE-kYA" firstAttribute="centerX" secondItem="l14-hs-HWk" secondAttribute="centerX" id="NP0-qJ-BHW"/>
+                                    <constraint firstItem="m1e-e5-4JA" firstAttribute="top" secondItem="l14-hs-HWk" secondAttribute="top" id="bwu-w7-FvM"/>
+                                    <constraint firstAttribute="trailing" secondItem="m1e-e5-4JA" secondAttribute="trailing" id="cWO-Jg-KPh"/>
+                                    <constraint firstItem="bu0-lE-kYA" firstAttribute="centerY" secondItem="l14-hs-HWk" secondAttribute="centerY" id="lbY-b5-5iZ"/>
+                                    <constraint firstItem="m1e-e5-4JA" firstAttribute="centerX" secondItem="l14-hs-HWk" secondAttribute="centerX" id="nwX-dh-rMX"/>
+                                    <constraint firstItem="m1e-e5-4JA" firstAttribute="height" secondItem="l14-hs-HWk" secondAttribute="height" multiplier="0.125" id="q6V-YK-fcd"/>
+                                    <constraint firstItem="WFw-Ke-L66" firstAttribute="width" secondItem="m1e-e5-4JA" secondAttribute="width" id="tOn-qG-dwl"/>
+                                    <constraint firstItem="WFw-Ke-L66" firstAttribute="leading" secondItem="l14-hs-HWk" secondAttribute="leading" id="y7N-9I-Nrt"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,6 +130,11 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="bottomBar" destination="WFw-Ke-L66" id="dgh-Y8-kzR"/>
+                        <outlet property="middleGround" destination="bu0-lE-kYA" id="aSX-4f-xvy"/>
+                        <outlet property="topBar" destination="m1e-e5-4JA" id="7Wz-Xb-oBV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abx-UJ-NLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

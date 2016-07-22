@@ -11,7 +11,6 @@
 		BAC87F751D41448B006AFC38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAC87F731D41448B006AFC38 /* Main.storyboard */; };
 		BAC87F781D41448B006AFC38 /* NumberTiles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAC87F761D41448B006AFC38 /* NumberTiles.xcdatamodeld */; };
 		BAC87F7A1D41448B006AFC38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAC87F791D41448B006AFC38 /* Assets.xcassets */; };
-		BAC87F7D1D41448B006AFC38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAC87F7B1D41448B006AFC38 /* LaunchScreen.storyboard */; };
 		BAC87F881D41448B006AFC38 /* NumberTilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC87F871D41448B006AFC38 /* NumberTilesTests.swift */; };
 		BAC87F931D41448B006AFC38 /* NumberTilesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC87F921D41448B006AFC38 /* NumberTilesUITests.swift */; };
 		BAE876A81D42007000701DC7 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE876A71D42007000701DC7 /* LaunchViewController.swift */; };
@@ -37,12 +36,11 @@
 
 /* Begin PBXFileReference section */
 		BAC87F6C1D41448B006AFC38 /* NumberTiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberTiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BAC87F6F1D41448B006AFC38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BAC87F6F1D41448B006AFC38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = NumberTiles/AppDelegate.swift; sourceTree = "<group>"; };
 		BAC87F741D41448B006AFC38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAC87F771D41448B006AFC38 /* NumberTiles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NumberTiles.xcdatamodel; sourceTree = "<group>"; };
-		BAC87F791D41448B006AFC38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BAC87F7C1D41448B006AFC38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BAC87F7E1D41448B006AFC38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAC87F791D41448B006AFC38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = NumberTiles/Assets.xcassets; sourceTree = "<group>"; };
+		BAC87F7E1D41448B006AFC38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = NumberTiles/Info.plist; sourceTree = "<group>"; };
 		BAC87F831D41448B006AFC38 /* NumberTilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumberTilesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAC87F871D41448B006AFC38 /* NumberTilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTilesTests.swift; sourceTree = "<group>"; };
 		BAC87F891D41448B006AFC38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,6 +83,7 @@
 				BAC87F861D41448B006AFC38 /* NumberTilesTests */,
 				BAC87F911D41448B006AFC38 /* NumberTilesUITests */,
 				BAC87F6D1D41448B006AFC38 /* Products */,
+				BAE876AC1D420A1500701DC7 /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,12 +102,7 @@
 			children = (
 				BAE876A91D42015500701DC7 /* GameScreen */,
 				BAE876A61D42003500701DC7 /* Launch */,
-				BAC87F6F1D41448B006AFC38 /* AppDelegate.swift */,
 				BAC87F731D41448B006AFC38 /* Main.storyboard */,
-				BAC87F791D41448B006AFC38 /* Assets.xcassets */,
-				BAC87F7B1D41448B006AFC38 /* LaunchScreen.storyboard */,
-				BAC87F7E1D41448B006AFC38 /* Info.plist */,
-				BAC87F761D41448B006AFC38 /* NumberTiles.xcdatamodeld */,
 			);
 			path = NumberTiles;
 			sourceTree = "<group>";
@@ -145,6 +139,17 @@
 				BAE876AA1D42016600701DC7 /* GameScreenViewController.swift */,
 			);
 			name = GameScreen;
+			sourceTree = "<group>";
+		};
+		BAE876AC1D420A1500701DC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BAC87F6F1D41448B006AFC38 /* AppDelegate.swift */,
+				BAC87F791D41448B006AFC38 /* Assets.xcassets */,
+				BAC87F7E1D41448B006AFC38 /* Info.plist */,
+				BAC87F761D41448B006AFC38 /* NumberTiles.xcdatamodeld */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,7 +257,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAC87F7D1D41448B006AFC38 /* LaunchScreen.storyboard in Resources */,
 				BAC87F7A1D41448B006AFC38 /* Assets.xcassets in Resources */,
 				BAC87F751D41448B006AFC38 /* Main.storyboard in Resources */,
 			);
@@ -324,14 +328,6 @@
 				BAC87F741D41448B006AFC38 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BAC87F7B1D41448B006AFC38 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BAC87F7C1D41448B006AFC38 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -542,7 +538,8 @@
 				BAC87F771D41448B006AFC38 /* NumberTiles.xcdatamodel */,
 			);
 			currentVersion = BAC87F771D41448B006AFC38 /* NumberTiles.xcdatamodel */;
-			path = NumberTiles.xcdatamodeld;
+			name = NumberTiles.xcdatamodeld;
+			path = NumberTiles/NumberTiles.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

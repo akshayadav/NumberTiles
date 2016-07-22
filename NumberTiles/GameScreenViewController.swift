@@ -10,11 +10,18 @@ import UIKit
 
 class GameScreenViewController: UIViewController {
 
+    @IBOutlet weak var topBar: UIView!
+    @IBOutlet weak var bottomBar: UIView!
+    @IBOutlet weak var middleGround: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        var imageView: UIImageView = UIImageView()
 //       imageView = UIImageView.init()
+        
+        print(topBar.frame.height)
+        print(bottomBar.frame.height)
+        
 
         // Do any additional setup after loading the view.
     }
@@ -24,6 +31,13 @@ class GameScreenViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func whatheight(sender: UIButton) {
+        
+        print(topBar.frame.height)
+        print(bottomBar.frame.height)
+        print(middleGround.frame.height)
+        print(UIScreen.mainScreen().bounds.size.height)
+    }
 
     /*
     // MARK: - Navigation
