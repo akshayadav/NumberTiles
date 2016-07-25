@@ -10,7 +10,7 @@ import UIKit
 import ChameleonFramework
 
 class GameScreenViewController: UIViewController {
-
+    
     @IBOutlet weak var topBar: UIView!
     @IBOutlet weak var bottomBar: UIView!
     @IBOutlet weak var middleGround: UIView!
@@ -20,9 +20,15 @@ class GameScreenViewController: UIViewController {
     
     var BGColorTimer: NSTimer = NSTimer()
     var NumberTimer: NSTimer = NSTimer()
-    var TimeLeftTimer: Int = 15
+    var TimeClockTimer: NSTimer = NSTimer()
+    
+    
+    var TimeLeftTimer: Int = 16
     
     var pause:Bool = false
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     //---------Buttons------------
     
     
@@ -45,36 +51,63 @@ class GameScreenViewController: UIViewController {
     var arrayOfButtons: NSArray = NSArray()
     var arrayOfColors: NSArray = NSArray()
     
+    var score:Int = 0
+    
     //----------------------------
     
     
-    func resetTimeLeftTimer(){
+    func setTimeLeftTimer(){
+        
+        if(TimeLeftTimer == 0){
+            self.gameOver()
+        }
+        else{
+            TimeLeftTimer = TimeLeftTimer - 1
+            TimerClockLabel.text = String(TimeLeftTimer)
+        }
+        
+        
+    }
     
-        TimerClockLabel.text = String(TimeLeftTimer)
-    
+    func gameOver(){
+        
+        BGColorTimer.invalidate()
+        NumberTimer.invalidate()
+        TimeClockTimer.invalidate()
+        
+        print("Game Over")
+        
     }
     
     @IBAction func buttonPressed(sender: UIButton) {
-    
-        if(sender.currentTitle!.isEqual(String(minNumberInGame))){
-            minNumberInGame = minNumberInGame + 1
-//          maxNumberInGame = maxNumberInGame + 1
-            NumberTimer.invalidate()
-           
-            BGColorTimer.invalidate()
-            setNumberOnButtons()
-            self.startTimer()
-        }
-        else{
-            print("wrong Number")
+        
+        if(!pause){
             
-            sender.layer.borderColor = UIColor.redColor().CGColor
-            
+            if(sender.currentTitle!.isEqual(String(minNumberInGame))){
+                minNumberInGame = minNumberInGame + 1
+                //          maxNumberInGame = maxNumberInGame + 1
+                NumberTimer.invalidate()
+                
+                BGColorTimer.invalidate()
+                setNumberOnButtons()
+                TimeLeftTimer = 16
+                TimeClockTimer.invalidate()
+                self.startTimer()
+                score = score + TimeLeftTimer
+                setScore()
+                
+            }
+            else{
+                print("wrong Number")
+                
+                sender.layer.borderColor = UIColor.redColor().CGColor
+                
+            }
         }
         
-//        print(sender.currentTitle!)
+        //        print(sender.currentTitle!)
         
-    
+        
     }
     
     
@@ -100,22 +133,22 @@ class GameScreenViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        
-//        
-//        for button in arrayOfButtons as! [UIButton]{
-//           
-//            button.backgroundColor = UIColor.randomFlatColor().lightenByPercentage(25.0)
-//        }
-//        
-//        super.viewWillAppear(animated)
-//    }
+    //    override func viewWillAppear(animated: Bool) {
+    //
+    //
+    //        for button in arrayOfButtons as! [UIButton]{
+    //
+    //            button.backgroundColor = UIColor.randomFlatColor().lightenByPercentage(25.0)
+    //        }
+    //
+    //        super.viewWillAppear(animated)
+    //    }
     
     override func viewDidAppear(animated: Bool) {
         
@@ -125,16 +158,10 @@ class GameScreenViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
-    func whatheight() {
-        
-        print(topBar.frame.height)
-        print(bottomBar.frame.height)
-        print(middleGround.frame.height)
-        print(UIScreen.mainScreen().bounds.size.height)
-    }
+    
     
     func setNumberOnButtons(){
-    
+        
         
         var numbersInGame = [Int](minNumberInGame...minNumberInGame + 12)
         
@@ -144,11 +171,11 @@ class GameScreenViewController: UIViewController {
             button.setTitle(String(numbersInGame[randomIndex]), forState: UIControlState.Normal)
             numbersInGame.removeAtIndex(randomIndex)
         }
-    
+        
     }
     
     func removeNumbersOnButtons(){
-    
+        
         for button in arrayOfButtons {
             button.setTitle("???",forState: UIControlState.Normal)
         }
@@ -161,12 +188,12 @@ class GameScreenViewController: UIViewController {
             let bgColor: UIColor = arrayOfColors[Int(arc4random_uniform(UInt32(arrayOfColors.count)))] as! UIColor
             let titleColor: UIColor = UIColor.init(complementaryFlatColorOf: bgColor, withAlpha: 100.0)
             
-                        //button.backgroundColor = UIColor.init(randomFlatColorOfShadeStyle: UIShadeStyle.Light , withAlpha: 1.0).lightenByPercentage(80.0)
+            //button.backgroundColor = UIColor.init(randomFlatColorOfShadeStyle: UIShadeStyle.Light , withAlpha: 1.0).lightenByPercentage(80.0)
             button.backgroundColor = bgColor
             button.setTitleColor(titleColor, forState: UIControlState.Normal)
             
         }
-
+        
         
     }
     
@@ -175,6 +202,8 @@ class GameScreenViewController: UIViewController {
         BGColorTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameScreenViewController.changeButtonColor), userInfo: nil, repeats: true)
         
         NumberTimer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(GameScreenViewController.setNumberOnButtons), userInfo: nil, repeats: true)
+        
+        TimeClockTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,target: self,selector: #selector(GameScreenViewController.setTimeLeftTimer),userInfo: nil, repeats: true)
         
     }
     
@@ -189,6 +218,8 @@ class GameScreenViewController: UIViewController {
         }
         else{
             BGColorTimer.invalidate()
+            TimeClockTimer.invalidate()
+            NumberTimer.invalidate()
             self.removeNumbersOnButtons()
             pause = true
         }
@@ -197,17 +228,21 @@ class GameScreenViewController: UIViewController {
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setScore() {
+        self.scoreLabel.text = String(score)
     }
-    */
-
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 
